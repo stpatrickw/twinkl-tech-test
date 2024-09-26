@@ -39,7 +39,7 @@ Database connection details are available in environment variables - see accompa
 
 To enter the container and run commands (eg. using composer):
 
-`docker exec -it --user=www-data TwinklTestServer bash`
+`docker exec -it TwinklPhp bash`
 
 Feel free to amend the docker configuration and re-build if required 
 (eg. to point to a different directory for the public website files by adding
@@ -47,3 +47,16 @@ a new mounted volume in docker-compose.yml).
 
 XDebug is installed - to use it you will need to set up path mappings in your IDE to 
 point from the location of your local files to the /var folder of the container.
+
+### As soon as the docker spins up all containers the following commands inside TwinklPhp container should be executed:
+
+1) Install composer dependencies:
+`composer install`
+
+2) Create a schema for User table in DB:
+`bin/console doctrine:migration:migrate`
+
+### How to Test: 
+Use Postman or run the following console command:
+
+`curl -X POST http://localhost/signup -H "Content-Type: application/json" -d '{"firstName": "Andrey", "lastName": "Demidenko", "email": "test@test.com", "type": "student"}'`
