@@ -60,3 +60,7 @@ point from the location of your local files to the /var folder of the container.
 Use Postman or run the following console command:
 
 `curl -X POST http://localhost/signup -H "Content-Type: application/json" -d '{"firstName": "Andrey", "lastName": "Demidenko", "email": "test@test.com", "type": "student"}'`
+
+To see incoming email messages open this page in browser:
+
+http://localhost:8025
